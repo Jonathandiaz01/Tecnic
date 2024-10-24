@@ -1,0 +1,264 @@
+package com.cursojava.curso.dao;
+
+import com.cursojava.curso.models.Nombre;
+import de.mkammerer.argon2.Argon2;
+import de.mkammerer.argon2.Argon2Factory;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import java.util.List;
+
+@Repository
+@Transactional
+public class ProductosDaoImp implements NombreDao {
+
+    @PersistenceContext
+    EntityManager entityManager;
+
+    @Override
+    @Transactional
+    public List<Nombre> getNombres() {
+        String query = "FROM Nombre";
+        return entityManager.createQuery(query).getResultList();
+    }
+
+    @Override
+    public void eliminar(Long id) {
+        Nombre Nombre = entityManager.find(Nombre.class, id);
+        entityManager.remove(Nombre);
+    }
+
+    @Override
+    public void registrar(Nombre Nombre) {
+        entityManager.merge(Nombre);
+    }
+
+    @Override
+    public Nombre obtenerNombrePorCredenciales(Nombre Nombre) {
+        String query = "FROM Nombre WHERE email = :email";
+        List<Nombre> lista = entityManager.createQuery(query)
+                .setParameter("email", Nombre.getEmail())
+                .getResultList();
+
+        if (lista.isEmpty()) {
+            return null;
+        }
+
+public class ProductosDaoImp implements ApellidoDao {
+
+    @PersistenceContext
+    EntityManager entityManager;
+
+    @Override
+    @Transactional
+    public List<Apellido> getApellidos() {
+        String query = "FROM Apellido";
+        return entityManager.createQuery(query).getResultList();
+    }
+
+    @Override
+    public void eliminar(Long id) {
+        Apellido Apellido = entityManager.find(Apellido.class, id);
+        entityManager.remove(Apellido);
+    }
+
+    @Override
+    public void registrar(Apellido Apellido) {
+        entityManager.merge(Apellido);
+    }
+
+    @Override
+    public Apellido obtenerApellidoPorCredenciales(Apellido Apellido) {
+        String query = "FROM Apellido WHERE email = :email";
+        List<Apellido> lista = entityManager.createQuery(query)
+                .setParameter("email", Apellido.getEmail())
+                .getResultList();
+
+        if (lista.isEmpty()) {
+            return null;
+        }
+
+public class ProductosDaoImp implements DirecciónDao {
+
+    @PersistenceContext
+    EntityManager entityManager;
+
+    @Override
+    @Transactional
+    public List<Dirección> getDireccións() {
+        String query = "FROM Dirección";
+        return entityManager.createQuery(query).getResultList();
+    }
+
+    @Override
+    public void eliminar(Long id) {
+        Dirección Dirección = entityManager.find(Dirección.class, id);
+        entityManager.remove(Dirección);
+    }
+
+    @Override
+    public void registrar(Dirección Dirección) {
+        entityManager.merge(Dirección);
+    }
+
+    @Override
+    public Dirección obtenerDirecciónPorCredenciales(Dirección Dirección) {
+        String query = "FROM Dirección WHERE email = :email";
+        List<Dirección> lista = entityManager.createQuery(query)
+                .setParameter("email", Dirección.getEmail())
+                .getResultList();
+
+        if (lista.isEmpty()) {
+            return null;
+        }
+
+public class ProductosDaoImp implements CiudadDao {
+
+    @PersistenceContext
+    EntityManager entityManager;
+
+    @Override
+    @Transactional
+    public List<Ciudad> getCiudads() {
+        String query = "FROM Ciudad";
+        return entityManager.createQuery(query).getResultList();
+    }
+
+    @Override
+    public void eliminar(Long id) {
+        Ciudad Ciudad = entityManager.find(Ciudad.class, id);
+        entityManager.remove(Ciudad);
+    }
+
+    @Override
+    public void registrar(Ciudad Ciudad) {
+        entityManager.merge(Ciudad);
+    }
+
+    @Override
+    public Ciudad obtenerCiudadPorCredenciales(Ciudad Ciudad) {
+        String query = "FROM Ciudad WHERE email = :email";
+        List<Ciudad> lista = entityManager.createQuery(query)
+                .setParameter("email", Ciudad.getEmail())
+                .getResultList();
+
+        if (lista.isEmpty()) {
+            return null;
+        }
+
+public class ProductosDaoImp implements TelefonoDao {
+
+    @PersistenceContext
+    EntityManager entityManager;
+
+    @Override
+    @Transactional
+    public List<Telefono> getTelefono() {
+        String query = "FROM Telefono";
+        return entityManager.createQuery(query).getResultList();
+    }
+
+    @Override
+    public void eliminar(Long id) {
+        Telefono Telefono = entityManager.find(Telefono.class, id);
+        entityManager.remove(Telefono);
+    }
+
+    @Override
+    public void registrar(Telefono Telefono) {
+        entityManager.merge(Telefono);
+    }
+
+    @Override
+    public Telefono obtenerTelefonoPorCredenciales(Telefono Telefono) {
+        String query = "FROM Telefono WHERE email = :email";
+        List<Telefono> lista = entityManager.createQuery(query)
+                .setParameter("email", Telefono.getEmail())
+                .getResultList();
+
+        if (lista.isEmpty()) {
+            return null;
+        }
+
+public class ProductosDaoImp implements CorreoDao {
+
+    @PersistenceContext
+    EntityManager entityManager;
+
+    @Override
+    @Transactional
+    public List<Correo> getCorreos() {
+        String query = "FROM Correo";
+        return entityManager.createQuery(query).getResultList();
+    }
+
+    @Override
+    public void eliminar(Long id) {
+        Correo Correo = entityManager.find(Correo.class, id);
+        entityManager.remove(Correo);
+    }
+
+    @Override
+    public void registrar(Correo Correo) {
+        entityManager.merge(Correo);
+    }
+
+    @Override
+    public Correo obtenerCorreoPorCredenciales(Correo Correo) {
+        String query = "FROM Correo WHERE email = :email";
+        List<Correo> lista = entityManager.createQuery(query)
+                .setParameter("email", Correo.getEmail())
+                .getResultList();
+
+        if (lista.isEmpty()) {
+            return null;
+        }
+
+public class ProductosDaoImp implements CedulaDao {
+
+    @PersistenceContext
+    EntityManager entityManager;
+
+    @Override
+    @Transactional
+    public List<Cedula> getCedulas() {
+        String query = "FROM Cedula";
+        return entityManager.createQuery(query).getResultList();
+    }
+
+    @Override
+    public void eliminar(Long id) {
+        Cedula Cedula = entityManager.find(Cedula.class, id);
+        entityManager.remove(Cedula);
+    }
+
+    @Override
+    public void registrar(Cedula Cedula) {
+        entityManager.merge(Cedula);
+    }
+
+    @Override
+    public Cedula obtenerCedulaPorCredenciales(Cedula Cedula) {
+        String query = "FROM Cedula WHERE email = :email";
+        List<Cedula> lista = entityManager.createQuery(query)
+                .setParameter("email", Cedula.getEmail())
+                .getResultList();
+
+        if (lista.isEmpty()) {
+            return null;
+        }
+
+
+
+        String passwordHashed = lista.get(0).getPassword();
+
+        Argon2 argon2 = Argon2Factory.create(Argon2Factory.Argon2Types.ARGON2id);
+        if (argon2.verify(passwordHashed, Nombre.getPassword())) {
+            return lista.get(0);
+        }
+        return null;
+    }
+
+}
